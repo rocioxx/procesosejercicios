@@ -9,21 +9,16 @@ public class numeros {
         
         String regexEuros = "(\\d+)(?=\\sEuros)";
         
-        System.out.println("💰 Montos en Euros encontrados:");
+        System.out.println("Montos en Euros encontrados:");
         encontrarYMostrar(texto, regexEuros);
 
         
         String regexDolares = "(?<=\\$)\\d+";
 
-        System.out.println("\n💵 Montos en Dólares encontrados:");
+        System.out.println("\nMontos en Dólares encontrados:");
         encontrarYMostrar(texto, regexDolares);
     }
     
-    /**
-     * Función auxiliar para encontrar e imprimir las coincidencias.
-     * @param texto El texto de entrada.
-     * @param regex La expresión regular a usar.
-     */
     private static void encontrarYMostrar(String texto, String regex) {
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(texto);

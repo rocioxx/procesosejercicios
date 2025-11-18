@@ -17,15 +17,6 @@ public class groups {
         System.out.printf("\n-------------------------------------------------");
     }
 
-    /**
-     * Muestra solo el texto que se encuentra entre comillas simples o dobles.
-     * Utiliza un grupo de captura para el contenido.
-     * Patrón: ['"](.*?)['"]
-     * - ['"] : Coincide con comilla simple o doble (la de apertura).
-     * - (.*?) : **Grupo de captura 1**, coincide con cualquier carácter (el .), cero o más veces (*), de forma no codiciosa (el ?).
-     * - ['"] : Coincide con comilla simple o doble (la de cierre).
-     * @param texto La cadena de texto a analizar.
-     */
     public static void extraerTextoEntreComillas(String texto) {
        
         String regex = "['\"](.*?)['\"]"; 
@@ -42,17 +33,7 @@ public class groups {
         }
     }
 
-    /**
-     * Muestra solo los números que son seguidos por la palabra "Libras" o "Libras." 
-     * o "Libras?" etc. sin incluir el texto "Libras".
-     * Utiliza Lookahead positivo: (?=...).
-     * Patrón: \b\d+(?=\s*Libras\b)
-     * - \b : Límite de palabra (asegura que el número no sea parte de una palabra más grande).
-     * - \d+ : Coincide con uno o más dígitos (el número en sí).
-     * - (?=\s*Libras\b) : **Lookahead positivo**. Coincide solo si lo que sigue (sin incluirlo en el resultado final)
-     * es cero o más espacios en blanco (\s*) seguido de la palabra "Libras" (\b asegura que es la palabra completa).
-     * @param texto La cadena de texto a analizar.
-     */
+   
     public static void extraerNumerosConLibras(String texto) {
        
         String regex = "\\b\\d+\\b(?=\\s*Libras\\b)"; 
