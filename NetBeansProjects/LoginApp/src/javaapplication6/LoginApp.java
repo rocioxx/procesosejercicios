@@ -8,7 +8,7 @@ package javaapplication6;
  *
  * @author rocio
  */
-public class JavaApplication6 {
+public class LoginApp {
 
     /**
      * @param args the command line arguments
