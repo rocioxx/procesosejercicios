@@ -1,8 +1,10 @@
+package javaapplication6;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package javaapplication6;
+
 
 /**
  *
@@ -26,21 +28,233 @@ public class LoginForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        txtEmail = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        txtURL = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        txtUsuario = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        txtPassword = new javax.swing.JPasswordField();
+        btnLogin = new javax.swing.JButton();
+        lblMensaje = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setText("Correo Electrónico:");
+
+        txtEmail.setText("jTextField1");
+
+        jLabel2.setText("URL y Puerto:");
+
+        txtURL.setText("jTextField1");
+        txtURL.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtURLActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setText("Usuario:");
+
+        txtUsuario.setText("jTextField1");
+        txtUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtUsuarioActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setText("Contraseña:");
+
+        txtPassword.setText("jPasswordField1");
+        txtPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPasswordActionPerformed(evt);
+            }
+        });
+
+        btnLogin.setText("Iniciar Sesión");
+        btnLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLoginActionPerformed(evt);
+            }
+        });
+
+        lblMensaje.setText("jLabel5");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtURL, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnLogin)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(118, 118, 118)
+                        .addComponent(lblMensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(119, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtURL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnLogin)
+                    .addComponent(lblMensaje))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtURLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtURLActionPerformed
+       // 2.1 Comprobar si NO es HTTPS
+    if (!url.startsWith("https://") && (url.startsWith("http://") || url.matches("^\\d{1,3}(\\.\\d{1,3}){3}:\\d+$"))) {
+         lblMensaje.setText("⚠ ATENCIÓN: La URL no usa HTTPS. Se enviará de todas formas.");
+         // La validación se deja enviar, solo se comenta (lo que hace el setText)
+    }
+
+    // Validación estricta del formato
+    // (http/https://...) O (IP)  +  :PUERTO
+    String urlRegex = "^(https?://[a-zA-Z0-9\\-.]+\\.[a-zA-Z]{2,}(/[a-zA-Z0-9\\-._~:/?#\\[\\]@!$&'()*+,;=]*)?|\\d{1,3}(\\.\\d{1,3}){3}):\\d{1,5}$";
+    
+    if (!url.matches(urlRegex)) {
+        lblMensaje.setText("ERROR: La URL debe ser: https://dominio.es/algo:puerto O IP:puerto.");
+        return; // Detener el proceso
+    }
+    }//GEN-LAST:event_txtURLActionPerformed
+
+    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
+     String email = txtEmail.getText();
+    String url = txtURL.getText();
+    String usuario = txtUsuario.getText();
+    // Importante: JPasswordField usa getPassword() y se convierte a String
+    String password = new String(txtPassword.getPassword()); 
+    
+    lblMensaje.setText(""); // Limpiar mensajes anteriores
+
+    // 1. Validación de Correo Electrónico (Requisito 1)
+    String emailRegex = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$"; 
+    if (!email.matches(emailRegex)) {
+        lblMensaje.setText("ERROR: El formato del correo debe ser: ejemplo@dominio.com");
+        return; 
+    }
+
+    // 2. Validación de URL y Puerto (Requisito 2)
+    // Regex: URL completa O IP, seguido de :PUERTO
+    String urlRegex = "^(https?://[a-zA-Z0-9\\-.]+\\.[a-zA-Z]{2,}(/[a-zA-Z0-9\\-._~:/?#\\[\\]@!$&'()*+,;=]*)?|\\d{1,3}(\\.\\d{1,3}){3}):\\d{1,5}$";
+    
+    // 2.1 Comentar si NO es HTTPS (Requisito 2.1)
+    if (url.matches(urlRegex) && !url.startsWith("https://")) {
+         lblMensaje.setText("⚠ ATENCIÓN: La URL no usa HTTPS. Se enviará de todas formas.");
+    }
+
+    if (!url.matches(urlRegex)) {
+        lblMensaje.setText("ERROR: La URL debe ser: https://dominio.es/algo:puerto O IP:puerto.");
+        return; 
+    }
+    
+    // 3. Validación de Usuario (Requisito 3)
+    // El usuario solo puede tener mayúsculas, símbolos y números. NO puede tener minúsculas.
+    if (usuario.matches(".*[a-zñáéíóú].*")) {
+        lblMensaje.setText("ERROR: El Usuario solo puede tener MAYÚSCULAS, SÍMBOLOS y NÚMEROS.");
+        return;
+    }
+    
+    // No puede empezar por un número.
+    if (usuario.matches("^[0-9].*")) { 
+        lblMensaje.setText("ERROR: El Usuario no puede empezar con un número.");
+        return; 
+    }
+    
+    // 4. Validación de Contraseña (Requisito 4)
+    
+    // 4.1. Empieza por minúscula: ^[a-z]
+    if (!password.matches("^[a-z].*")) {
+        lblMensaje.setText("ERROR: La Contraseña debe empezar por una letra minúscula.");
+        return;
+    }
+    
+    // 4.2. No puede tener símbolos. Solo letras y números: [a-zA-Z0-9]
+    // Nota: El "_" se valida por separado, pero esta regex ya bloquea todos los símbolos
+    if (password.matches(".*[^a-zA-Z0-9].*")) {
+        // Debemos hacer una excepción para el '_' para dar el mensaje específico
+        if (password.contains("_")) {
+            lblMensaje.setText("ERROR: La Contraseña no puede contener el símbolo '_'.");
+            return;
+        }
+        lblMensaje.setText("ERROR: La Contraseña no puede tener símbolos (solo letras y números).");
+        return;
+    }
+    
+    // Si todas las validaciones son exitosas
+    lblMensaje.setText("✅ ¡Validación exitosa! Iniciando sesión...");
+    }//GEN-LAST:event_btnLoginActionPerformed
+
+    private void txtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioActionPerformed
+        if (usuario.matches(".*[a-zñáéíóú].*")) {
+        lblMensaje.setText("ERROR: El Usuario solo puede tener MAYÚSCULAS, SÍMBOLOS y NÚMEROS.");
+        return;
+    }
+    
+    // El usuario no puede empezar por un número.
+    if (usuario.matches("^[0-9].*")) { 
+        lblMensaje.setText("ERROR: El Usuario no puede empezar con un número.");
+        return; 
+    }
+    }//GEN-LAST:event_txtUsuarioActionPerformed
+
+    private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
+        if (!password.matches("^[a-z].*")) {
+        lblMensaje.setText("ERROR: La Contraseña debe empezar por una letra minúscula.");
+        return;
+    }
+    
+    // 4.2. No puede tener símbolos. Solo letras (mayúsculas y minúsculas) y números: [a-zA-Z0-9]
+    // Buscamos cualquier carácter que NO sea una letra o un número
+    if (password.matches(".*[^a-zA-Z0-9].*")) {
+        lblMensaje.setText("ERROR: La Contraseña no puede tener símbolos.");
+        return;
+    }
+    
+    // 4.3. No puede tener guion bajo (_):
+    if (password.contains("_")) {
+        lblMensaje.setText("ERROR: La Contraseña no puede contener el símbolo '_'.");
+        return;
+    }
+    
+    // Si todas las validaciones son exitosas
+    lblMensaje.setText("🎉 ¡Inicio de sesión exitoso!");
+    // O podrías poner un JOptionPane.showMessageDialog(this, "Login OK");
+}
+    }//GEN-LAST:event_txtPasswordActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +292,16 @@ public class LoginForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnLogin;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel lblMensaje;
+    private javax.swing.JTextField txtEmail;
+    private javax.swing.JPasswordField txtPassword;
+    private javax.swing.JTextField txtURL;
+    private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 }
+
