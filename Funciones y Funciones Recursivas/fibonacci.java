@@ -2,35 +2,34 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class fibonacci {
+    
+    // Función auxiliar que devuelve el n-ésimo valor de Fibonacci
+    private static int fibValorRecursivo(int n) {
+        if (n <= 1) {
+            return n;
+        }
+        return fibValorRecursivo(n - 1) + fibValorRecursivo(n - 2);
+    }
 
-    public static List<Integer> calcularFibonacciIterativo(int maximo) {
+    /**
+     * Crea una lista de números de Fibonacci menores o iguales a N de forma recursiva.
+     */
+    public static List<Integer> fibonacciRecursivaHastaN(int N) {
         List<Integer> serie = new ArrayList<>();
-        
-        if (maximo <= 1) {
+        if (N < 0) {
             return serie;
         }
 
-        int a = 0;
-        int b = 1;
-        
-        serie.add(a); 
-
-        while (b < maximo) {
-            serie.add(b);
+        int i = 0;
+        while (true) {
+            int valorFib = fibValorRecursivo(i);
             
-            int siguiente = a + b;
-            
-            a = b;
-            b = siguiente;
+            if (valorFib > N || valorFib < 0) { // < 0 para evitar overflow si N es muy grande
+                break;
+            }
+            serie.add(valorFib);
+            i++;
         }
-        
         return serie;
-    }
-    
-    public static void main(String[] args) {
-        int limite = 100;
-        List<Integer> fibonacciIterativo = calcularFibonacciIterativo(limite);
-        System.out.println("Fibonacci Iterativo (menores de " + limite + "):");
-        System.out.println(fibonacciIterativo);
     }
 }
