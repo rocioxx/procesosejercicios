@@ -1,39 +1,28 @@
 public class Divide {
-
-    public static int divide(int dividendo, int divisor) {
-        if (divisor == 0) {
-            throw new IllegalArgumentException("El divisor no puede ser cero.");
+   
+    public static int divideEnteraIterativa(int a, int b) {
+        if (b == 0) {
+            throw new ArithmeticException("División por cero.");
         }
-
-        if (dividendo == 0) {
+        if (a == 0) {
             return 0;
         }
 
-        boolean resultadoNegativo = (dividendo < 0) ^ (divisor < 0);
-
-        int absDividendo = Math.abs(dividendo);
-        int absDivisor = Math.abs(divisor);
-
+        // 1. Determinar el signo
+        int signo = ((a < 0) ^ (b < 0)) ? -1 : 1;
+        
+        // 2. Trabajar con valores absolutos
+        int dividendo = Math.abs(a);
+        int divisor = Math.abs(b);
+        
         int cociente = 0;
-        int resto = absDividendo;
-
-        while (resto >= absDivisor) {
-            resto = resto - absDivisor;
-            cociente = cociente + 1;
+        
+        // Resta repetida
+        while (dividendo >= divisor) {
+            dividendo = dividendo - divisor;
+            cociente = cociente + 1; // Suma permitida para contar
         }
-
-        if (resultadoNegativo) {
-            return -cociente;
-        } else {
-            return cociente;
-        }
-    }
-    
-   
-    public static void main(String[] args) {
-        System.out.println("20 / 4 = " + divide(20, 4));
-        System.out.println("10 / 3 = " + divide(10, 3));
-        System.out.println("-15 / 5 = " + divide(-15, 5));
-        System.out.println("17 / -6 = " + divide(17, -6));
+        
+        return cociente * signo;
     }
 }

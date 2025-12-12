@@ -3,9 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class fibonaccisinrecursividad {
-    /**
-     * Crea una lista de números de Fibonacci menores o iguales a N de forma iterativa.
-     */
+   
     public static List<Integer> fibonacciIterativaHastaN(int N) {
         List<Integer> serie = new ArrayList<>();
         if (N < 0) {
