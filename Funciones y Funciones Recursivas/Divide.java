@@ -1,5 +1,7 @@
 public class Divide {
-   
+    /**
+     * Divide dos números enteros (a / b) usando solo restas (Iterativa).
+     */
     public static int divideEnteraIterativa(int a, int b) {
         if (b == 0) {
             throw new ArithmeticException("División por cero.");
